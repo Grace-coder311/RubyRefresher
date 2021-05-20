@@ -62,14 +62,14 @@ describe 'Refresher' do
     it "returns a value from the hash for the given key" do
       a_hash = {magic: :johnson, shirley: :temple, "babe" => "ruth"}
 
-      expect(a_hash.fetch(:magic)).to :johnson
+      expect(a_hash.fetch(:magic)).to eq :johnson
       expect(a_hash[:shirley]).to eq :temple
-      expect(a_hash["babe"]).to "ruth"
+      expect(a_hash["babe"]).to eq "ruth"
     end
 
     it "removes a key value pair from a hash" do
       a_hash = { frank: :sinatra }
-      a_hash.shift(:frank)
+      a_hash.delete(:frank)
       expect(a_hash.empty?).to be true
     end
   end
@@ -77,7 +77,7 @@ describe 'Refresher' do
   context "on loops, yeah!!!" do
     it "should loop over the array and return a new array" do
       loopy = [1,2,3]
-      expect(loopy.each { |n| n + 1 }).to eq [2,3,4]
+      expect(loopy.map { |n| n + 1 }).to eq [2,3,4]
     end
   end
 
